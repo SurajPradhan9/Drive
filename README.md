@@ -3,7 +3,7 @@
 ## Description
 This project is a Google Drive Clone, a file storage application that allows users to securely upload, download, and retrieve files with proper authentication.
 
-## Steps Followed to Create This Project
+## Setup Project
 1. Open terminal and initiate the project:
    - Run the command: `npm init -y` (This generates a `package.json` file).
 
@@ -33,3 +33,40 @@ This project is a Google Drive Clone, a file storage application that allows use
        "start": "npx nodemon app.js"
      }
      ```
+    ### Server Setup Complete 🎉
+
+## EJS Setup
+
+Now that the server setup is done, we will set up EJS:
+
+### Configure EJS as the View Engine
+
+Add the following line to `app.js`:
+
+```javascript
+app.set('view engine', 'ejs');
+```
+
+### Create the Views Folder
+
+1. Create a folder named `views`.
+2. Inside it, create a file named `index.ejs`.
+
+### Write HTML Code Inside `index.ejs`
+
+```html
+<h1>Hello World</h1>
+```
+
+### Modify the Express Route
+
+Update the route in `app.js` to render the EJS file:
+
+```javascript
+app.get('/', (req, res) => {
+  res.render('index');
+});
+```
+
+### EJS Setup Complete 🎉
+
