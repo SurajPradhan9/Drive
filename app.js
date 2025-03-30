@@ -1,12 +1,18 @@
-const express=require('express')
-const app=express();
+const express = require("express");
+const userRouter = require("./routes/user.routes");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectToDB = require("./config/db");
+connectToDB();
 
-app.set('view engine','ejs');
+const app = express();
 
-app.get('/',(req,res)=>{
-    res.render('index');
-})
+app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000,()=>{
-    console.log('server is running on port 3000');
-})
+app.use("/user", userRouter);
+
+app.listen(3000, () => {
+  console.log("server is running on port 3000");
+});
